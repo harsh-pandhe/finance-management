@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Finance Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="app">
+        <h1>Finance Manager</h1>
+        <div class="transaction-form">
+            <input type="text" id="name" placeholder="Transaction Name" required>
+            <input type="number" id="amount" placeholder="Amount" required>
+            <input title="date" type="datetime-local" id="datetime" required>
+            <select title="transaction" id="type">
+                <option value="credit">Credit</option>
+                <option value="debit">Debit</option>
+            </select>
+            <button id="addTransaction">Add Transaction</button>
+        </div>
+        <div class="statistics">
+            <h2>Statistics</h2>
+            <p>Total Credit: <span id="totalCredit">0</span></p>
+            <p>Total Debit: <span id="totalDebit">0</span></p>
+        </div>
+        <div class="chart-container">
+            <h2>Monthly Summary</h2>
+            <canvas id="financeChart"></canvas>
+        </div>
+        <div class="controls">
+            <label for="filterType">Filter by Type:</label>
+            <select id="filterType">
+                <option value="all">All</option>
+                <option value="credit">Credit</option>
+                <option value="debit">Debit</option>
+            </select>
+
+            <label for="sortTransactions">Sort by:</label>
+            <select id="sortTransactions">
+                <option value="dateDesc">Date (Newest)</option>
+                <option value="dateAsc">Date (Oldest)</option>
+                <option value="amountDesc">Amount (High to Low)</option>
+                <option value="amountAsc">Amount (Low to High)</option>
+            </select>
+        </div>
+        <div class="transaction-table">
+            <h2>Transactions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Amount</th>
+                        <th>Date & Time</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
